@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组，字符串</title>
+	<link rel="stylesheet" href="reset.css">
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<script>
+		// arguments
+		// function show(a, b) {
+		//     console.log(a, b);
+		// } 
+		// show(1);
+		// show(1, 2, 3);
+		// JS函数的实参在内部数组存放，通过arguments对象来访问实参数组
+		// 函数内部的对象有：arguments、this
+		// 伪数组arguments[i]，语法与数组类似
+		
+		// 实参个数 > 形参：
+		// 如果传进的参数大于函数定义接受的个数，多出来的参数值也会保存到函数内部中(arguments访问)，只是函数执行时，多出的参数未被使用；
+		// 实参个数 < 形参：
+		// 如果传进的参数少于函数定义接收的个数，那么后面的参数未定义(undefined)。
+
+
+		// 计算5的阶乘
+		// var sum = 1;
+		// function show(n) {
+		//     if(n > 1) {
+		//         sum = sum * n;
+		//         arguments.callee(n - 1);
+		//     }
+		//     return sum
+		// } show(5);
+
+		// 定义数组
+		// 数组的长度42亿
+		// var arr = [{b1 : "222"}]; 
+		// console.log(arr.length);
+		// console.log(arr[0]["b1"]);
+		// console.log(arr);
+
+		// var arrs = new Array(4);
+		// 构造数组的赋值
+		// console.log(arrs);
+		// 构造函数只有一个数字类型的参数，表示数组的长度；如果是非数字类型的参数，则为数组项。
+		// 数组能存储任意数据类型的数据
+		// JS不存在真正意义上的二维数组
+
+		// 数组的操作：
+		// 栈——尾部操作——入栈(push)、出栈(pop)；
+		// push()返回添加了数组元素后的数组新长度
+		// pop()返回出栈的那个数组元素值
+		// var arr = [1, 2, 3, 4];
+		// console.log(arr.push(1, 2));
+		// console.log(arr.pop());
+		// console.log(arr);
+		// 栈的操作会改变原来的数组
+		
+		// 队列——头部操作——入队(unshift)、出队(shift)；
+		// var arr = new Array(1, 2, 3, 4);
+		// console.log(arr.unshift(4, 5, 6));
+		// 返回的是删除后的值
+		// console.log(arr.shift());
+		// console.log(arr);
+		// 队列的操作也会改变原来的数组
+		
+		// 数组的排序（原地排序法）
+		// var arr = [3, 7, 2, 8];
+		// function order(a, b) {
+		//     console.log(a, b);
+		//     //return b - a;//从大到小输出
+		//     return a - b;//从小到大输出
+		// }
+		// console.log(arr.sort(order));
+		// 第一个数与第二个数之间的大小？
+		
+		// 其他常用的数组方法
+		// join方法
+		// var a = ["margin", "top"];
+		// console.log(a.join("+"));
+		// console.log(typeof(a.join()));
+		// console.log(a);
+		// 将数组元素连接起来构建成一个字符串，没有参数，默认用逗号隔开，原来的数组没有改变
+		
+		// concat方法
+		// var b = ["margin", "top"];
+		// console.log(b.concat(2, 3));
+		// console.log(b);
+		// 连接数组，尾部连接，返回新数组，原来的数组没有改变
+		 
+		// reverse方法
+		// var c = ["margin", "top", "px", "H5"];
+		// console.log(c.reverse());
+		// console.log(c);
+		// 颠倒数组中元素的顺序,在原数组中修改，改变了原来的数组
+		 
+		// slice方法：返回数据的一部分
+		// slice(starpos, endpos)
+		// var d = [1, 2, 3, 4, 5];
+		// console.log(d.slice(1));
+		// console.log(d.slice(2, 4));
+		// console.log(d.slice(-2, -1));
+		// console.log(d.slice(3, 1));
+		// console.log(d);
+		// 返回数据的一部分，原来的数组没有改变，第一个参数大于等于第二个参数时，返回[ ]; 
+		
+		// splice方法
+		 // splice(start，deleteCount，value)
+		// var e = [1, 2, 3, 5, 8, 9];
+		// console.log(e.splice(2));
+		// console.log(e.splice(2, 2));
+		// console.log(e.splice(2, 2, 6, 7, 9));
+		// console.log(e.splice(-2, 2, 6, 7));
+		// console.log(e.splice(-4, 1));
+		// console.log(e);
+		// 插入、删除或替换数据的元素——返回被切割的数组
+		
+		// 数组总结：会改变原来数组的方法
+		//      push( );
+		//      pop( );
+		//      unshift( );
+		//      shift( );
+		//      sort( );    
+		//      reverse( );
+		//      splice( );
+
+
+		// 字符串操作：
+		// var str = "HTML5";
+		// var str = " ";
+		// var str = new String(); 
+		// 字符串的长度？
+		// console.log(str.length);
+		// 利用索引值获取字符串内容
+
+		// charAt()
+		var str = "HTMLH5-12";
+		console.log(str.charAt(2));
+		// 返回字符串中的第N个字符
+	 
+		// indexOf、lastIndexOf
+		// 利用字符串内容获取索引值
+		console.log(str.indexOf("H"));//返回字符在串里的索引值，如果不存在返回-1
+		console.log(str.lastIndexOf("H"));//返回索引值与上一致，只是起点是从反向开始
+
+		// 字符串——数组: split
+		var str1 = "ab-cd-ef";
+		console.log(str1.split(""));
+		// 数组——字符串：join
+		
+		// 字符串转换大小写
+		// toUpperCase();大写
+		// toLowerCase();小写
+		var str2 = "abcd";
+		var str3 = "HTML5";
+		var arr = [1, 2, 3];
+		// console.log(arr.toString());
+		console.log(arr.join(""));
+		console.log(str2.toUpperCase());
+		console.log(str3.toLowerCase());
+		console.log(str2, str3);
+		console.log(str2.split("c"));
+
+		// substring(from, to);截取字符串，含头不含尾
+        // substr(startPos, length)抽取一个子串
+        var str4 = "HTML5";
+        console.log(str4.substring(1, 3));//TM
+        console.log(str4.substr(1, 3));//TML
+
+		// border-top-color——> borderTopColor
+		// HTML5.jpg——获取文件的后缀名
+		var string = "border-top-color";
+		var arr = string.split("-");
+		for(var i = 1; i < arr.length; i++) {
+			arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substring(1);
+		}
+		console.log(arr);
+		console.log(arr.join(""));
+
+		// 获取文件后缀名
+		var str6 = "HTML5.jpg";
+		console.log(str6.substring(5));
+		console.log(str6.split("."));
+
+		var index = str6.indexOf(".");
+		console.log(str6.substring(index, str6.length));
+	</script>
+</body>
+</html>
