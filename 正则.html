@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则</title>
+	<link rel="stylesheet" href="reset.css">
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<script>
+	// 正则JS风格
+	var reg = new RegExp("a");
+	var str = "caijindun";
+	console.log(str.replace(reg, "蔡"));
+
+	// 正则perl风格
+	// var reg = /[0-9a-z]/gi;
+	// var str = "HTML5h5-7.png";
+	// console.log(reg.test(str));
+	// replace方法只能替换第一个匹配的字符串
+	// .表示匹配任意字符；g代表的是全局；i表示不区分大小写
+	// 处理特殊字符，用转义字符处理，如：\.
+	// []中括号表示区间；^表示除什么之外
+
+		// 手机号
+	// var reg = /^1[0-9]{10}$/gi
+	// var str = "13445678903"
+	// console.log(reg.test(str));
+
+	// var reg = /^[0][0-9]{3}[-][0-9]{8}$/gi
+	// var str = "0592-23332256"
+	// console.log(reg.test(str));
+
+	// 贪婪匹配与非贪婪匹配：
+		// 针对 + * ？ ｛n｝ {n,m} {n,}尽可能多的从一段文本从头开始匹配到末尾，而不是从开始匹配到一个符合匹配要求位置即可。
+	
+	var reg = /-(\w){1}/gi;
+	var str = "border-top-color";
+	var result = str.replace(reg, function ($0, $1) {
+		// $0代表所有（相对正则）
+		// $1 代表第一个子项，最多到$9
+		console.log($0, $1);
+		return $1.toUpperCase();
+	});
+	// str.replace(reg, "");
+	console.log(result);
+	$(window).resize(function() {
+  	var t = $(window).width;
+  	console.log(t)
+  })
+	</script>
+</body>
+</html>
